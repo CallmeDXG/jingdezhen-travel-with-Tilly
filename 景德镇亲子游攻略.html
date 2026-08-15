@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>景德镇亲子游攻略 · 10岁手工控闺女版</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --ink: #2c2722;
+    --paper: #f7f3ec;
+    --card: #fffdf8;
+    --celadon: #7ba8a0;
+    --celadon-d:#5b8a82;
+    --clay: #c97b5a;
+    --clay-d:#a85f43;
+    --gold: #d4a24c;
+    --blue: #4a6fa5;
+    --line: #e4dccd;
+    --muted: #8a7f70;
+  }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    background: linear-gradient(135deg, var(--celadon-d) 0%, var(--blue) 100%);
+    color: #fff;
+    padding: 38px 22px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: 0; height: 5px;
+    background: repeating-linear-gradient(90deg, var(--gold) 0 18px, transparent 18px 36px);
+    opacity: .5;
+  }
+  header h1 { font-size: 27px; letter-spacing: 1px; margin-bottom: 8px; }
+  header .sub { font-size: 14px; opacity: .92; }
+  header .meta {
+    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    margin-top: 18px;
+  }
+  header .chip {
+    background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3);
+    padding: 6px 14px; border-radius: 20px; font-size: 13px; backdrop-filter: blur(4px);
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 22px 16px 60px; }
+  section { margin-bottom: 34px; }
+  h2 {
+    font-size: 20px; color: var(--celadon-d); border-left: 5px solid var(--clay);
+    padding-left: 12px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+  }
+  h2 .ic { font-size: 22px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 18px 20px; box-shadow: 0 2px 10px rgba(120,100,70,.06);
+  }
+  /* Map */
+  #map { height: 520px; border-radius: 14px; border: 1px solid var(--line); z-index: 1; }
+  .map-legend {
+    display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 14px; font-size: 13px;
+  }
+  .map-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.15); }
+  .dot.museum { background: var(--blue); }
+  .dot.shop { background: var(--clay); }
+  .dot.food { background: var(--gold); }
+  .dot.kids { background: #e07a9b; }
+  .dot.nature { background: #6fae5a; }
+  .dot.base { background: #9a8f7e; }
+  .dot.hotel { background: #9b59b6; }
+  /* Tabs filter */
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .filter-bar button {
+    border: 1px solid var(--line); background: #fff; color: var(--muted);
+    padding: 6px 14px; border-radius: 18px; font-size: 13px; cursor: pointer; transition: .2s;
+  }
+  .filter-bar button.active { background: var(--celadon-d); color: #fff; border-color: var(--celadon-d); }
+  /* Itinerary */
+  .day {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    margin-bottom: 14px; overflow: hidden;
+  }
+  .day-head {
+    background: linear-gradient(90deg, #fbf6ec, #f1ece0);
+    padding: 13px 18px; display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line);
+  }
+  .day-head .d { font-size: 17px; font-weight: 700; color: var(--clay-d); }
+  .day-head .date { font-size: 13px; color: var(--muted); }
+  .day-head .theme { margin-left: auto; font-size: 13px; color: var(--celadon-d); }
+  .day-body { padding: 6px 18px 16px; }
+  .tl { position: relative; padding-left: 22px; }
+  .tl::before { content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+  .ev { position: relative; padding: 11px 0; border-bottom: 1px dashed var(--line); }
+  .ev:last-child { border-bottom: none; }
+  .ev::before { content: ""; position: absolute; left: -19px; top: 17px; width: 11px; height: 11px; border-radius: 50%; background: var(--celadon); border: 2px solid #fff; box-shadow: 0 0 0 1px var(--celadon); }
+  .ev .t { font-size: 13px; color: var(--muted); font-weight: 600; }
+  .ev .act { font-size: 15px; font-weight: 600; margin: 2px 0; }
+  .ev .note { font-size: 13px; color: var(--muted); }
+  .ev.empty .act { color: var(--muted); font-weight: 400; font-style: italic; }
+  .ev.empty::before { background: var(--muted); box-shadow: 0 0 0 1px var(--muted); }
+  .ev.hotel-tag .act { color: #9b59b6; }
+  .ev.hotel-tag::before { background: #9b59b6; box-shadow: 0 0 0 1px #9b59b6; }
+  .tag { display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 10px; margin-right: 6px; vertical-align: middle; }
+  .tag.kids { background: #fde3ec; color: #c25c82; }
+  .tag.free { background: #e3f1ec; color: #3f8a78; }
+  .tag.craft { background: #fbeede; color: #b97221; }
+  /* Stay cards */
+  .stay-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 14px; }
+  .stay {
+    border: 1px solid var(--line); border-radius: 12px; padding: 16px; background: #fff;
+  }
+  .stay.confirmed { border-color: #9b59b6; box-shadow: 0 0 0 2px rgba(155,89,182,.25); }
+  .stay h3 { font-size: 15px; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .stay .badge { font-size: 11px; background: #9b59b6; color:#fff; padding: 2px 8px; border-radius: 10px; }
+  .stay p { font-size: 13px; color: var(--muted); }
+  .stay ul { font-size: 13px; margin: 8px 0 0 18px; color: var(--ink); }
+  .stay li { margin-bottom: 3px; }
+  /* Craft highlight */
+  .craft-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 14px; }
+  .craft {
+    border: 1px solid var(--line); border-radius: 12px; padding: 15px; background: #fff;
+    border-top: 3px solid var(--clay);
+  }
+  .craft h3 { font-size: 15px; color: var(--clay-d); margin-bottom: 5px; }
+  .craft .price { font-size: 13px; color: var(--blue); font-weight: 600; margin-bottom: 4px; }
+  .craft p { font-size: 13px; color: var(--muted); }
+  /* Tips */
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 12px; }
+  .tip { background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 8px; padding: 12px 14px; font-size: 13px; }
+  .tip.warn { border-left-color: #d96b5a; }
+  .tip.cool { border-left-color: var(--celadon); }
+  .tip b { color: var(--ink); }
+  /* Checklist */
+  .check-list { columns: 2; column-gap: 24px; font-size: 14px; }
+  .check-list h4 { break-inside: avoid; color: var(--celadon-d); margin: 10px 0 6px; font-size: 14px; }
+  .check-list label { display: flex; align-items: flex-start; gap: 8px; break-inside: avoid; margin-bottom: 5px; cursor: pointer; }
+  .check-list input { margin-top: 4px; }
+  /* popup */
+  .leaflet-popup-content { font-size: 13px; }
+  .leaflet-popup-content b { color: var(--celadon-d); }
+  footer { text-align: center; color: var(--muted); font-size: 12px; padding: 20px; }
+  .note-inline { font-size: 12.5px; color: var(--muted); background: #fbf6ec; border: 1px dashed var(--gold); border-radius: 8px; padding: 10px 14px; margin-top: 10px; }
+  @media (max-width: 600px) {
+    .check-list { columns: 1; }
+    #map { height: 400px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🏺 景德镇亲子游攻略</h1>
+  <div class="sub">10岁爱做手工的闺女专属 · 宽松版 · 已定酒店</div>
+  <div class="meta">
+    <span class="chip">📅 8/15(周五)–8/23(周日) · 8天7晚</span>
+    <span class="chip">🚗 落地租车 · 日产轩逸</span>
+    <span class="chip">✈️ 北京往返</span>
+    <span class="chip">👧 一大一小(10岁)</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 概览 -->
+  <section class="card">
+    <h2><span class="ic">🧭</span>行程总览</h2>
+    <p style="font-size:14.5px;margin-bottom:10px;">
+      整体节奏<strong>宽松不赶场</strong>，每天核心活动1-2个，午后留休息/自由探索时间。亲子重点放在
+      <strong style="color:var(--clay-d)">手工体验</strong>（扎染、玻璃、陶艺）和<strong style="color:var(--blue)">博物馆</strong>。
+      酒店已定：<b style="color:#9b59b6">前3晚麗枫酒店（陶瓷博物馆旁）</b> + <b style="color:#9b59b6">后3晚景瀚大酒店（陶溪川街区）</b>，地图上已标注紫色点。
+    </p>
+    <div class="note-inline">
+      📌 <b>待补充</b>：① 每日哪个半天空着，等你刷到好玩的再填 ② 鄱阳湖观鸟若成行，会替换 D6/D7 中的一天。
+    </div>
+  </section>
+
+  <!-- 地图 -->
+  <section>
+    <h2><span class="ic">🗺️</span>可缩放地图 · 标注所有目的地（共40+个点）</h2>
+    <div class="filter-bar" id="filterBar">
+      <button class="active" data-cat="all">全部</button>
+      <button data-cat="hotel">🏨 酒店</button>
+      <button data-cat="museum">博物馆</button>
+      <button data-cat="shop">门店/市集</button>
+      <button data-cat="kids">亲子手工</button>
+      <button data-cat="food">美食</button>
+      <button data-cat="nature">自然/古镇</button>
+      <button data-cat="base">交通/基地</button>
+    </div>
+    <div id="map"></div>
+    <div class="map-legend">
+      <span><i class="dot hotel"></i>酒店（已订）</span>
+      <span><i class="dot museum"></i>博物馆/展馆</span>
+      <span><i class="dot shop"></i>门店/市集</span>
+      <span><i class="dot kids"></i>亲子手工体验</span>
+      <span><i class="dot food"></i>美食</span>
+      <span><i class="dot nature"></i>自然/古镇</span>
+      <span><i class="dot base"></i>机场/租车</span>
+    </div>
+  </section>
+
+  <!-- 每日行程 -->
+  <section>
+    <h2><span class="ic">📅</span>每日行程（宽松版）</h2>
+
+    <div class="day">
+      <div class="day-head"><span class="d">D1</span><span class="date">8/15 周五</span><span class="theme">落地 · 取车 · 入住麗枫</span></div>
+      <div class="day-body"><div class="tl">
+        <div class="ev"><div class="t">17:30 - 19:40</div><div class="act">✈️ CA1887 北京→景德镇罗家机场</div><div class="note">落地约晚8点，先取行李</div></div>
+        <div class="ev"><div class="t">19:30</div><div class="act">🚗 机场取车（日产轩逸）</div><div class="note">取车点：罗家机场服务点，已订8/15 19:30–8/23 10:00</div></div>
+        <div class="ev"><div class="t">20:30</div><div class="act">🍜 晚餐：抚州弄 / 花香酒酿煮粉</div><div class="note">第一晚别太赶，就近吃碗粉暖胃</div></div>
+        <div class="ev hotel-tag"><div class="t">21:30</div><div class="act">🏨 入住：麗枫酒店（陶瓷博物馆陶阳里店）</div><div class="note">昌江区瓷都大道1168号 · 高级大床房 · D1-D3共3晚</div></div>
+      </div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="d">D2</span><span class="date">8/16 周六</span><span class="theme">陶瓷博物馆 + 御窑 + 陶阳里</span></div>
+      <div class="day-body"><div class="tl">
+        <div class="ev"><div class="t">09:30</div><div class="act">🏛️ 景德镇陶瓷博物馆 <span class="tag free">免费</span></div><div class="note">闺女看青花、颜色釉；周一闭馆，今天周六OK</div></div>
+        <div class="ev"><div class="t">12:00</div><div class="act">🍽️ 泥上风土自然餐厅 / 抚州弄午餐</div><div class="note">本地菜，可要求微辣</div></div>
+        <div class="ev"><div class="t">14:00</div><div class="act">🏛️ 御窑博物馆 + 陶阳里历史文化旅游区 <span class="tag kids">亲子</span></div><div class="note">建筑很出片，逛老作坊遗址；联票约53元</div></div>
+        <div class="ev"><div class="t">17:00</div><div class="act">🛍️ 抚州弄小吃街 + 陶阳新村夜市</div><div class="note">吃饭+逛小摊，买便宜手工小物件</div></div>
+        <div class="ev empty"><div class="t">晚</div><div class="act">（空）— 看你刷到啥</div></div>
+      </div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="d">D3</span><span class="date">8/17 周日</span><span class="theme">亲子手工日 · 扎染 + 玻璃</span></div>
+      <div class="day-body"><div class="tl">
+        <div class="ev"><div class="t">09:30</div><div class="act">🎨 小樱青花扎染店 <span class="tag craft">扎染DIY</span><span class="tag kids">亲子</span></div><div class="note">约105元/人，闺女最爱！提前约，确认总价含材料</div></div>
+        <div class="ev"><div class="t">14:00</div><div class="act">🔮 绿西玻璃工作室 <span class="tag craft">玻璃熔合</span><span class="tag kids">亲子</span></div><div class="note">做玻璃小件，单次体验即可，成品可带走</div></div>
+        <div class="ev empty"><div class="t">晚</div><div class="act">（空）— 可加陶艺拉坯或写真妆造</div><div class="note">胖师傅写真馆·妆造在御窑厂附近，想拍古风照可排这天</div></div>
+      </div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="d">D4</span><span class="date">8/18 周一</span><span class="theme">三宝村艺术慢逛 → 换酒店</span></div>
+      <div class="day-body"><div class="tl">
+        <div class="ev"><div class="t">10:00</div><div class="act">🏞️ 三宝国际陶艺村（陶源谷·三宝度假区）<span class="tag free">免费</span></div><div class="note">艺术工作室+小溪+奇怪可爱的小店，周一很多馆闭但村子开放</div></div>
+        <div class="ev"><div class="t">12:30</div><div class="act">🍽️ 三宝村内简餐</div></div>
+        <div class="ev"><div class="t">15:00</div><div class="act">☕ 三宝村咖啡/手作小店自由探索</div><div class="note">累了就回麗枫拿行李</div></div>
+        <div class="ev hotel-tag"><div class="t">17:00</div><div class="act">🏨 办理退房（麗枫）→ 入住景瀚大酒店（陶溪川街区店）</div><div class="note">珠山区广场南路28号 · 云端观景大床房 · D4-D6共3晚</div></div>
+      </div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="d">D5</span><span class="date">8/19 周二</span><span class="theme">雕塑瓷厂 + 陶溪川文创街区</span></div>
+      <div class="day-body"><div class="tl">
+        <div class="ev"><div class="t">09:30</div><div class="act">🏭 雕塑瓷厂 <span class="tag free">免费</span></div><div class="note">巷子里有原创陶瓷，适合淘小物件给闺女；拍照好看</div></div>
+        <div class="ev"><div class="t">12:00</div><div class="act">🍽️ 一番街烤肉（午餐）</div></div>
+        <div class="ev"><div class="t">14:00</div><div class="act">🏛️ 陶溪川文创街区 + 今夕美术馆 <span class="tag free">免费</span></div><div class="note">美术馆+画廊+文创市集，周五六晚有夜市</div></div>
+        <div class="ev empty"><div class="t">晚</div><div class="act">（空）— 若周五六再回来赶夜市</div></div>
+      </div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="d">D6</span><span class="date">8/20 周三</span><span class="theme">古窑 / 瓷宫 / 直升机 或 鄱阳湖</span></div>
+      <div class="day-body"><div class="tl">
+        <div class="ev"><div class="t">方案A</div><div class="act">🏺 古窑民俗博览区（95元）+ 浮梁新平村瓷宫（25元）<span class="tag kids">亲子</span></div><div class="note">看传统柴窑+老师傅拉坯，闺女能看懂"瓷器怎么烧出来"</div></div>
+        <div class="ev"><div class="t">方案A+</div><div class="act">🚁 江西直升机科技馆 <span class="tag kids">亲子</span></div><div class="note">闺女如果喜欢机械/飞行器会很兴奋，离市区不远</div></div>
+        <div class="ev"><div class="t">方案B</div><div class="act">🦅 鄱阳湖国家湿地公园（自驾约1.5h）</div><div class="note">8月非越冬高峰，夏候鸟+湿地也值得；成行就占一天</div></div>
+        <div class="ev empty"><div class="t">晚</div><div class="act">（空）</div></div>
+      </div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="d">D7</span><span class="date">8/21 周四</span><span class="theme">瑶里古镇一日游</span></div>
+      <div class="day-body"><div class="tl">
+        <div class="ev"><div class="t">09:00</div><div class="act">🏘️ 瑶里古镇风景区 + 东埠古街古码头 <span class="tag free">免费</span></div><div class="note">徽派老屋+小桥流水+古码头，闺女可写生/捡石头</div></div>
+        <div class="ev"><div class="t">12:30</div><div class="act">🍽️ 瑶里镇内午餐</div></div>
+        <div class="ev"><div class="t">14:30</div><div class="act">🌿 寒溪村（免费，茶园村）/ 山闾村戏台</div><div class="note">艺术茶园+古戏台，返程顺路</div></div>
+        <div class="ev empty"><div class="t">晚</div><div class="act">（空）</div></div>
+      </div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="d">D8</span><span class="date">8/22 周五</span><span class="theme">补逛 + 返程准备</span></div>
+      <div class="day-body"><div class="tl">
+        <div class="ev"><div class="t">上午</div><div class="act">🛍️ 补买手信 / 丙丁柴窑 / 七四O厂 / 东郊学堂</div><div class="note">挑1-2个感兴趣的补打卡，不用全去</div></div>
+        <div class="ev"><div class="t">下午</div><div class="act">🧳 整理行李 + 闺女手工作品打包</div><div class="note">易碎！带气泡膜/衣服裹好</div></div>
+        <div class="ev empty"><div class="t">晚</div><div class="act">（空）— 最后一晚自由安排</div></div>
+      </div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="d">D9?</span><span class="date">8/23 周日</span><span class="theme">返程</span></div>
+      <div class="day-body"><div class="tl">
+        <div class="ev"><div class="t">10:00 前</div><div class="act">🚗 还车（罗家机场服务点）</div><div class="note">租期到 8/23 10:00，别超时</div></div>
+        <div class="ev"><div class="t">10:35</div><div class="act">✈️ CA8662 景德镇→北京</div><div class="note">落地北京 12:45</div></div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- 酒店 -->
+  <section>
+    <h2><span class="ic">🏨</span>已订酒店</h2>
+    <div class="stay-grid">
+      <div class="stay confirmed">
+        <h3>🏨 麗枫酒店（陶瓷博物馆陶阳里店） <span class="badge">已订</span></h3>
+        <p>📍 昌江区瓷都大道1168号 | 高级大床房 | 3晚</p>
+        <ul>
+          <li>📅 8/15 入住 — 8/18 离店（D1-D3）</li>
+          <li>✅ 紧邻陶瓷博物馆，步行可达</li>
+          <li>✅ 离陶阳里/御窑也很近</li>
+          <li>⚠️ D4早上退房后换到景瀚</li>
+        </ul>
+      </div>
+      <div class="stay confirmed">
+        <h3>🏨 景瀚大酒店（陶溪川街区店） <span class="badge">已订</span></h3>
+        <p>📍 珠山区广场南路28号 | 云端观景大床房 | 3晚</p>
+        <ul>
+          <li>📅 8/20 入住 — 8/23 离店（D4-D6）</li>
+          <li>✅ 陶溪川文创街区就在旁边</li>
+          <li>✅ 后半程逛街/夜市/返程都方便</li>
+          <li>⚠️ 注意：截图显示8/20入住，实际D4是8/18换酒店？请确认日期</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note-inline">⚠️ <b>日期确认</b>：截图显示麗枫 8/15-8/18（3晚）、景瀚 8/20-8/23（3晚），中间 8/18晚-8/20中午有空档？还是景瀚实际是 8/18入住？请确认一下，我好调整日程。</div>
+  </section>
+
+  <!-- 亲子手工重点 -->
+  <section>
+    <h2><span class="ic">🎨</span>闺女手工控 · 必体验清单</h2>
+    <div class="craft-grid">
+      <div class="craft"><h3>小樱青花扎染店</h3><div class="price">约 ¥105/人</div><p>扎染DIY，青花风格，10岁完全能上手，成品围巾/布包可带走。强烈推荐，记得提前预约并确认总价含材料。</p></div>
+      <div class="craft"><h3>绿西玻璃工作室</h3><div class="price">单次体验价面议</div><p>玻璃熔合（fusing）做小镜子/挂件，火候艺术，闺女会觉得神奇。单次即可，不必报三天课。</p></div>
+      <div class="craft"><h3>陶艺拉坯</h3><div class="price">约 ¥80-150/人</div><p>雕塑瓷厂/三宝村很多工作室可体验，做只小碗最有纪念意义。可和扎染排不同天。</p></div>
+      <div class="craft"><h3>胖师傅写真馆·妆造</h3><div class="price">古风妆造拍摄</div><p>御窑厂附近，闺女穿青花服饰拍组写真，留念绝佳。想拍可排D3晚或D4。</p></div>
+    </div>
+  </section>
+
+  <!-- 新增地点一览 -->
+  <section>
+    <h2><span class="ic">🆕</span>新增地点一览（已标入地图）</h2>
+    <div class="card">
+      <table style="width:100%;font-size:13px;border-collapse:collapse;">
+        <thead><tr style="background:#fbf6ec;text-align:left;">
+          <th style="padding:8px;border-bottom:2px solid var(--line);">地点名称</th>
+          <th style="padding:8px;border-bottom:2px solid var(--line);">类型</th>
+          <th style="padding:8px;border-bottom:2px solid var(--line);">备注</th>
+        </tr></thead>
+        <tbody>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">江西直升机科技馆</td><td style="padding:7px;"><span class="tag kids">亲子</span></td><td style="padding:7px;color:var(--muted);">闺女爱机械的话必去</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">浮梁县新平村瓷宫</td><td style="padding:7px;"><span class="tag free">景点</span></td><td style="padding:7px;color:var(--muted);">门票25元，外形出片</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">瑶里景区东埠古街古码头</td><td style="padding:7px;"><span class="tag free">古镇</span></td><td style="padding:7px;color:var(--muted);">瑶里配套，古码头很有味道</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">瑶里古镇风景区</td><td style="padding:7px;"><span class="tag free">古镇</span></td><td style="padding:7px;color:var(--muted);">徽派老屋+小桥流水</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">前程漂流</td><td style="padding:7px;"><span class="tag kids">玩水</span></td><td style="padding:7px;color:var(--muted);">夏季玩水好去处，带替换衣物</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">丙丁柴窑</td><td style="padding:7px;"><span class="tag craft">工艺</span></td><td style="padding:7px;color:var(--muted);">现代柴窑建筑，摄影圣地</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">景德镇市七四O厂</td><td style="padding:7px;">工业遗存</td><td style="padding:7px;color:var(--muted);">老厂房改造，文艺感</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">东郊学堂</td><td style="padding:7px;">文化空间</td><td style="padding:7px;color:var(--muted);">老学校改造的艺术空间</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">陶溪川文创街区</td><td style="padding:7px;"><span class="tag free">文创</span></td><td style="padding:7px;color:var(--muted);">美术馆+画廊+周五六夜市</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">景德镇民窑博物馆</td><td style="padding:7px;">博物馆</td><td style="padding:7px;color:var(--muted);">了解民窑历史</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">陶源谷·三宝国际陶艺村</td><td style="padding:7px;"><span class="tag free">艺术村</span></td><td style="padding:7px;color:var(--muted);">三宝村正式名，艺术工作室聚集</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">景德镇御窑博物馆</td><td style="padding:7px;">博物馆</td><td style="padding:7px;color:var(--muted);">陶阳里内，建筑极美</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">抚州弄</td><td style="padding:7px;"><span class="tag food">美食街</span></td><td style="padding:7px;color:var(--muted);">本地小吃一条街</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">陶阳里历史文化旅游区</td><td style="padding:7px;"><span class="tag free">景区</span></td><td style="padding:7px;color:var(--muted);">含御窑+老街，大片区</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">古窑民俗博览区</td><td style="padding:7px;">景区</td><td style="padding:7px;color:var(--muted);">门票95元，柴窑+拉坯演示</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">今夕美术馆</td><td style="padding:7px;">美术馆</td><td style="padding:7px;color:var(--muted);">陶溪川内，当代艺术展</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">山闾村戏台</td><td style="padding:7px;"><span class="tag free">古建</span></td><td style="padding:7px;color:var(--muted);">古戏台，瑶里方向顺路</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">饶州古镇</td><td style="padding:7px;"><span class="tag free">古镇</span></td><td style="padding:7px;color:var(--muted);">鄱阳县方向，鄱阳湖附近</td></tr>
+          <tr><td style="padding:7px;border-bottom:1px solid var(--line);">鄱阳湖国家湿地公园</td><td style="padding:7px;"><span class="tag nature">自然</span></td><td style="padding:7px;color:var(--muted);">观鸟/湿地，D6备选</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 注意事项 -->
+  <section>
+    <h2><span class="ic">⚠️</span>注意事项 & 本地经验</h2>
+    <div class="tips-grid">
+      <div class="tip warn"><b>🔴 闭馆日</b>：陶瓷博物馆、御窑博物馆<strong>周一闭馆</strong>！行程已避开周一安排馆内活动，别临时调换。</div>
+      <div class="tip warn"><b>🌶️ 吃辣</b>：景德镇菜偏辣，带娃点单一定说"微辣/不辣"，肠胃弱的备药。</div>
+      <div class="tip cool"><b>☀️ 防暑</b>：8月 24-33℃，瓷宫/古窑户外暴晒，带遮阳帽、防晒、小风扇、水。</div>
+      <div class="tip cool"><b>🦟 防蚊</b>：瑶里、寒溪、三宝村蚊虫多，长袖+驱蚊液必备。</div>
+      <div class="tip"><b>🛵 电瓶车</b>：满街电瓶车，过马路牵好闺女，租车自驾也小心。</div>
+      <div class="tip"><b>🏺 买瓷</b>：景区店先问价再摸，雕塑瓷厂巷子里的原创更划算；易碎品现场包气泡膜。</div>
+      <div class="tip"><b>📱 充电</b>：拍照多，充电宝天天满电；导航用高德/百度离线地图备着。</div>
+      <div class="tip"><b>🚗 租车</b>：已含ETC，还车8/23 10:00前，别超时；儿童安全座椅自行确认是否需租。</div>
+      <div class="tip"><b>🏨 换酒店</b>：D4从麗枫换到景瀚，记得提前打包行李，退房时检查手工作品是否带齐。</div>
+    </div>
+  </section>
+
+  <!-- 行前清单 -->
+  <section>
+    <h2><span class="ic">🎒</span>行前清单（可勾选）</h2>
+    <div class="card">
+      <div class="check-list">
+        <h4>🪪 证件</h4>
+        <label><input type="checkbox"> 大人身份证</label>
+        <label><input type="checkbox"> 闺女户口本/身份证</label>
+        <label><input type="checkbox"> 驾照（取车用）</label>
+        <label><input type="checkbox"> 机票行程单截图</label>
+        <label><input type="checkbox"> 酒店订单截图（麗枫+景瀚）</label>
+        <h4>👕 衣物</h4>
+        <label><input type="checkbox"> 透气夏装 ×7</label>
+        <label><input type="checkbox"> 防晒衣/冰袖</label>
+        <label><input type="checkbox"> 遮阳帽</label>
+        <label><input type="checkbox"> 舒适运动鞋</label>
+        <label><input type="checkbox"> 薄外套（车内空调）</label>
+        <label><input type="checkbox"> 替换衣物（漂流/玩水用）</label>
+        <h4>☀️ 防护</h4>
+        <label><input type="checkbox"> 防晒霜 SPF50+</label>
+        <label><input type="checkbox"> 驱蚊液+驱蚊贴</label>
+        <label><input type="checkbox"> 便携小风扇</label>
+        <label><input type="checkbox"> 湿巾/纸巾</label>
+        <h4>💊 药品</h4>
+        <label><input type="checkbox"> 肠胃药/退烧药</label>
+        <label><input type="checkbox"> 创可贴+碘伏棉棒</label>
+        <label><input type="checkbox"> 晕车药（盘山路）</label>
+        <h4>📱 电子</h4>
+        <label><input type="checkbox"> 充电宝+充电线</label>
+        <label><input type="checkbox"> 车载手机支架</label>
+        <label><input type="checkbox"> 离线地图</label>
+        <h4>🎨 手工相关</h4>
+        <label><input type="checkbox"> 气泡膜（包手作）</label>
+        <label><input type="checkbox"> 小背包（闺女装成品）</label>
+        <label><input type="checkbox"> 预先约扎染/玻璃</label>
+      </div>
+    </div>
+  </section>
+
+  <div class="note-inline">
+    🔄 <b>后续怎么更新这份攻略</b>：你刷到想去的店/展，直接把名字发我，我加进地图和对应那天的空位；鄱阳湖若去，告诉我具体哪天，我把D6/D7替换好。
+  </div>
+
+</div>
+
+<footer>景德镇亲子游攻略 · 由图片资料整理生成 · 地图数据 © OpenStreetMap</footer>
+
+<script>
+// ===== 地图初始化 =====
+const map = L.map('map', { scrollWheelZoom: true }).setView([29.26, 117.20], 11);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19, attribution: '© OpenStreetMap'
+}).addTo(map);
+
+// ===== 全部地点数据（40+个点）=====
+const places = [
+  // === 酒店（已订）===
+  { cat:'hotel', name:'🏨 麗枫酒店（陶瓷博物馆陶阳里店）', lat:29.2690, lng:117.1720, desc:'已订 · 昌江区瓷都大道1168号\n高级大床房 · 8/15入-8/18离（3晚）\n紧邻陶瓷博物馆' },
+  { cat:'hotel', name:'🏨 景瀚大酒店（陶溪川街区店）', lat:29.2890, lng:117.2070, desc:'已订 · 珠山区广场南路28号\n云端观景大床房 · 8/20入-8/23离（3晚）\n陶溪川文创街区旁' },
+
+  // === 交通/基地 ===
+  { cat:'base', name:'罗家机场 / 租车点', lat:29.3587, lng:117.1908, desc:'取还车点：8/15 19:30取，8/23 10:00还\n日产轩逸' },
+
+  // === 博物馆/展馆 ===
+  { cat:'museum', name:'景德镇陶瓷博物馆', lat:29.2799, lng:117.1914, desc:'免费 · 周一闭馆\n青花/颜色釉/历代瓷器\n7楼无佛像那层别找了' },
+  { cat:'museum', name:'景德镇御窑博物馆', lat:29.2866, lng:117.2053, desc:'位于陶阳里内 · 周一闭馆\n建筑极美（红砖拱形）\n联票约53元含陶阳里' },
+  { cat:'museum', name:'景德镇民窑博物馆', lat:29.2900, lng:117.1780, desc:'了解民窑烧造历史\n规模较小，顺路可看' },
+  { cat:'museum', name:'今夕美术馆', lat:29.2750, lng:117.1990, desc:'位于陶溪川文创街区内\n当代艺术展览\n免费参观' },
+  { cat:'museum', name:'江西直升机科技馆', lat:29.3600, lng:117.1650, desc:'直升机展示+科普\n闺女若喜欢机械/飞行器必去\n门票待确认' },
+
+  // === 门店/市集/景区 ===
+  { cat:'shop', name:'陶溪川文创街区', lat:29.2802, lng:117.2006, desc:'美术馆+画廊+文创店铺\n周五六日晚有创意市集\n免费开放' },
+  { cat:'shop', name:'雕塑瓷厂', lat:29.2850, lng:117.2070, desc:'免费 · 巷子原创陶瓷\n适合淘小物件给闺女\n拍照好看' },
+  { cat:'shop', name:'陶阳新村夜市', lat:29.2900, lng:117.1800, desc:'夜宵+小摊\n便宜手工小物件\n第一晚可来逛' },
+  { cat:'shop', name:'浮梁县新平村瓷宫', lat:29.3300, lng:117.1500, desc:'门票25元\n外形像童话城堡/瓷制宫殿\n里面较热，注意防暑' },
+  { cat:'shop', name:'景德镇古窑民俗博览区', lat:29.2833, lng:117.1789, desc:'门票95元\n传统柴窑+拉坯演示\n非遗传承人现场表演' },
+  { cat:'shop', name:'景德镇陶阳里历史文化旅游区', lat:29.2866, lng:117.2053, desc:'含御窑博物馆+明清老街\n大片区可逛半天\n联票约53元' },
+  { cat:'shop', name:'景德镇市七四O厂', lat:29.2820, lng:117.2150, desc:'老电子工业厂改造\n文艺复古风\n适合拍照' },
+  { cat:'shop', name:'东郊学堂', lat:29.3010, lng:117.2220, desc:'老学校改造的文化/艺术空间\n展览+活动\n适合顺路停留' },
+  { cat:'shop', name:'丙丁柴窑', lat:29.2680, lng:117.1380, desc:'现代柴窑建筑\n清水混凝土+光影\n摄影爱好者必去' },
+  { cat:'shop', name:'山闾村戏台', lat:29.3300, lng:117.2400, desc:'古戏台建筑\n瑶里方向顺路\n感受传统文化' },
+
+  // === 亲子手工 ===
+  { cat:'kids', name:'小樱青花扎染店', lat:29.2950, lng:117.1650, desc:'扎染DIY 约105元/人\n青花风格 · 提前预约\n确认总价含材料费' },
+  { cat:'kids', name:'绿西玻璃工作室', lat:29.2810, lng:117.1980, desc:'玻璃熔合（fusing）体验\n做小镜子/挂件\n单次即可' },
+  { cat:'kids', name:'胖师傅写真馆·妆造', lat:29.2870, lng:117.2040, desc:'御窑厂附近\n古风妆造拍摄\n闺女穿青花服超好看' },
+  { cat:'kids', name:'前程漂流', lat:29.3100, lng:117.4200, desc:'夏季玩水好去处\n带替换衣物+防水袋\n注意安全' },
+
+  // === 美食 ===
+  { cat:'food', name:'抚州弄', lat:29.2880, lng:117.1900, desc:'本地小吃一条街\n冷粉/牛骨粉/油条包麻糍\n必吃！' },
+  { cat:'food', name:'花香酒酿煮粉', lat:29.2920, lng:117.1880, desc:'早餐/落地第一碗粉\n酒酿风味独特' },
+  { cat:'food', name:'泥上风土自然餐厅', lat:29.2830, lng:117.1960, desc:'本地菜午餐\n环境好 · 可要求微辣' },
+  { cat:'food', name:'一番街烤肉', lat:29.2840, lng:117.2020, desc:'午餐/晚餐烤肉\n闺女爱吃肉的话合适' },
+  { cat:'food', name:'抚州弄大排档', lat:29.2880, lng:117.1890, desc:'夜宵大排档\n热闹接地气' },
+
+  // === 自然/古镇 ===
+  { cat:'nature', name:'陶源谷·三宝国际陶艺村', lat:29.2960, lng:117.1550, desc:'三宝村正式名\n艺术工作室聚集地\n免费 · 慢逛拍照' },
+  { cat:'nature', name:'瑶里古镇风景区', lat:29.3500, lng:117.5500, desc:'免费 · 距市区约1h车程\n徽派老屋+小桥流水\n闺女可写生/捡石头' },
+  { cat:'nature', name:'瑶里景区东埠古街古码头', lat:29.3650, lng:117.5550, desc:'瑶里配套景点\n古代茶叶运输码头\n古街保存完好' },
+  { cat:'nature', name:'寒溪村', lat:29.3200, lng:117.2200, desc:'免费 · 艺术茶园村\n凉快安静 · 返程顺路' },
+  { cat:'nature', name:'饶州古镇', lat:29.0100, lng:116.7000, desc:'鄱阳县方向\n仿古商业街\n鄱阳湖游览可顺路' },
+  { cat:'nature', name:'鄱阳湖国家湿地公园', lat:29.1200, lng:116.4800, desc:'自驾约1.5h\n湿地生态 · 夏候鸟\nD6备选方案' },
+];
+
+const colorMap = { museum:'#4a6fa5', shop:'#c97b5a', kids:'#e07a9b', food:'#d4a24c', nature:'#6fae5a', base:'#9a8f7e', hotel:'#9b59b6' };
+const markers = {};
+
+places.forEach(p => {
+  const m = L.circleMarker([p.lat, p.lng], {
+    radius: p.cat==='hotel'?10:8,
+    color:'#fff', weight:2,
+    fillColor: colorMap[p.cat], fillOpacity: 1
+  }).addTo(map);
+  m.bindPopup(`<b>${p.name}</b><br>${p.desc.replace(/\n/g,'<br>')}`);
+  markers[p.cat] = markers[p.cat] || [];
+  markers[p.cat].push(m);
+});
+
+// ===== 筛选按钮 =====
+document.getElementById('filterBar').addEventListener('click', e => {
+  if (e.target.tagName !== 'BUTTON') return;
+  document.querySelectorAll('#filterBar button').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  const cat = e.target.dataset.cat;
+  Object.keys(markers).forEach(k => {
+    const show = (cat === 'all' || cat === k);
+    markers[k].forEach(m => { if (show) m.addTo(map); else map.removeLayer(m); });
+  });
+});
+</script>
+
+</body>
+</html>
