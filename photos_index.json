@@ -1,0 +1,502 @@
+[
+  {
+    "idx": 1,
+    "name": "景德镇陶瓷博物馆",
+    "cat": "museum",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Aichi_Prefectural_Ceramic_Museum_%2830%29.jpg/960px-Aichi_Prefectural_Ceramic_Museum_%2830%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen Ceramic Museum"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Basin_with_dragon_and_phoenix_design%2C_Jingdezhen_ware%2C_China%2C_Ming_dynasty%2C_Wanli_era%2C_1573-1620_AD%2C_ceramic%2C_overglaze_enamel_-_Tokyo_National_Museum_-_Tokyo%2C_Japan_-_DSC08359.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen Ceramic Museum"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bottle%2C_Jingdezhen_ware%2C_China%2CQing_dynasty%2C_c._1700-1800%2C_porcelain%2C_glaze_-_Asian_Art_Museum_-_San_Francisco%2C_CA_-_DSC07284.jpg/960px-Bottle%2C_Jingdezhen_ware%2C_China%2CQing_dynasty%2C_c._1700-1800%2C_porcelain%2C_glaze_-_Asian_Art_Museum_-_San_Francisco%2C_CA_-_DSC07284.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen Ceramic Museum"
+      }
+    ],
+    "queries": [
+      "Jingdezhen Ceramic Museum",
+      "Jingdezhen porcelain museum"
+    ]
+  },
+  {
+    "idx": 2,
+    "name": "景德镇御窑博物馆",
+    "cat": "museum",
+    "files": [],
+    "queries": [
+      "Jingdezhen Imperial Kiln Museum"
+    ]
+  },
+  {
+    "idx": 3,
+    "name": "景德镇民窑博物馆",
+    "cat": "museum",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Changjiang%2C_Jingdezhen%2C_Jiangxi%2C_China_-_panoramio_%2816%29.jpg/960px-Changjiang%2C_Jingdezhen%2C_Jiangxi%2C_China_-_panoramio_%2816%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen folk kiln"
+      }
+    ],
+    "queries": [
+      "Jingdezhen folk kiln",
+      "Jingdezhen kiln"
+    ]
+  },
+  {
+    "idx": 4,
+    "name": "今夕美术馆",
+    "cat": "museum",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bottle%2C_Jingdezhen_ware%2C_China%2CQing_dynasty%2C_c._1700-1800%2C_porcelain%2C_glaze_-_Asian_Art_Museum_-_San_Francisco%2C_CA_-_DSC07284.jpg/960px-Bottle%2C_Jingdezhen_ware%2C_China%2CQing_dynasty%2C_c._1700-1800%2C_porcelain%2C_glaze_-_Asian_Art_Museum_-_San_Francisco%2C_CA_-_DSC07284.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen art museum"
+      }
+    ],
+    "queries": [
+      "Jingdezhen art museum",
+      "Taoxichuan art gallery"
+    ]
+  },
+  {
+    "idx": 5,
+    "name": "江西直升机科技馆",
+    "cat": "museum",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/AHMEC_sign.jpg/960px-AHMEC_sign.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "helicopter museum"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Helicopter_Museum_-_geograph.org.uk_-_1927159.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "src": "",
+        "query": "helicopter museum"
+      }
+    ],
+    "queries": [
+      "helicopter museum",
+      "helicopter exhibition"
+    ]
+  },
+  {
+    "idx": 6,
+    "name": "陶溪川文创街区",
+    "cat": "shop",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Jingdezhen%2C_Taoxichuan%2C_Ceramic_Art_Avenue%2C_Sp%C3%A4th-Orgel.jpg/960px-Jingdezhen%2C_Taoxichuan%2C_Ceramic_Art_Avenue%2C_Sp%C3%A4th-Orgel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Taoxichuan Jingdezhen"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Taoxichuan_20241019.jpg/960px-Taoxichuan_20241019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Taoxichuan Jingdezhen"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/201612_Changjiang_District%2C_Jingdezhen.jpg/960px-201612_Changjiang_District%2C_Jingdezhen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen creative district"
+      }
+    ],
+    "queries": [
+      "Taoxichuan Jingdezhen",
+      "Jingdezhen creative district"
+    ]
+  },
+  {
+    "idx": 7,
+    "name": "雕塑瓷厂",
+    "cat": "shop",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Bowl_with_arabesque_design%2C_Jingdezhen_ware%2C_China%2C_Ming_dynasty%2C_1300s_AD%2C_ceramic%2C_underglaze_black_-_Tokyo_National_Museum_-_Tokyo%2C_Japan_-_DSC08364.jpg/960px-Bowl_with_arabesque_design%2C_Jingdezhen_ware%2C_China%2C_Ming_dynasty%2C_1300s_AD%2C_ceramic%2C_underglaze_black_-_Tokyo_National_Museum_-_Tokyo%2C_Japan_-_DSC08364.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen ceramic"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Ceramic_Dragon%2C_Jingdezhen.jpg/960px-Ceramic_Dragon%2C_Jingdezhen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen ceramic"
+      }
+    ],
+    "queries": [
+      "Jingdezhen sculpture ceramic factory",
+      "Jingdezhen ceramic"
+    ]
+  },
+  {
+    "idx": 8,
+    "name": "陶阳新村夜市",
+    "cat": "shop",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Beijing_China_Barbecue-sticks-at-Donghuamen-Night-Market-01.jpg/960px-Beijing_China_Barbecue-sticks-at-Donghuamen-Night-Market-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "China night market"
+      }
+    ],
+    "queries": [
+      "Jingdezhen night market",
+      "China night market"
+    ]
+  },
+  {
+    "idx": 9,
+    "name": "浮梁县新平村瓷宫",
+    "cat": "shop",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Bowl_with_impressed_design_of_phoenix_and_flowers.tif/lossy-page1-960px-Bowl_with_impressed_design_of_phoenix_and_flowers.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen Porcelain Palace"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Decorated_punch_bowl_-_Reign_of_the_Yongzheng_emperor_%281723-1735%29_-_Jingdezhen_-_China_-_Louvre_-_TH_465.jpg/960px-Decorated_punch_bowl_-_Reign_of_the_Yongzheng_emperor_%281723-1735%29_-_Jingdezhen_-_China_-_Louvre_-_TH_465.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen Porcelain Palace"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Jingdezhen_White_Porcelain%2C_Song_Dynasty_%2824111564577%29.jpg/960px-Jingdezhen_White_Porcelain%2C_Song_Dynasty_%2824111564577%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen Porcelain Palace"
+      }
+    ],
+    "queries": [
+      "Jingdezhen Porcelain Palace",
+      "Porcelain Palace Jingdezhen"
+    ]
+  },
+  {
+    "idx": 10,
+    "name": "景德镇古窑民俗博览区",
+    "cat": "shop",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Changjiang%2C_Jingdezhen%2C_Jiangxi%2C_China_-_panoramio.jpg/960px-Changjiang%2C_Jingdezhen%2C_Jiangxi%2C_China_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen ancient kiln"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Changjiang%2C_Jingdezhen%2C_Jiangxi%2C_China_-_panoramio_%2810%29.jpg/960px-Changjiang%2C_Jingdezhen%2C_Jiangxi%2C_China_-_panoramio_%2810%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen ancient kiln"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Changjiang%2C_Jingdezhen%2C_Jiangxi%2C_China_-_panoramio_%2813%29.jpg/960px-Changjiang%2C_Jingdezhen%2C_Jiangxi%2C_China_-_panoramio_%2813%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen ancient kiln"
+      }
+    ],
+    "queries": [
+      "Jingdezhen ancient kiln",
+      "Jingdezhen kiln museum"
+    ]
+  },
+  {
+    "idx": 11,
+    "name": "景德镇陶阳里历史文化旅游区",
+    "cat": "shop",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/CADAL09006588_%E8%91%89%E8%81%96%E9%99%B6%E6%96%87%E9%9B%86.djvu/page1-960px-CADAL09006588_%E8%91%89%E8%81%96%E9%99%B6%E6%96%87%E9%9B%86.djvu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "陶阳里"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/CADAL09010692_%E9%99%B6%E9%9D%96%E7%AF%80%E9%9B%86%C2%B7%EF%BC%88%E4%B8%80%EF%BC%89.djvu/page1-960px-CADAL09010692_%E9%99%B6%E9%9D%96%E7%AF%80%E9%9B%86%C2%B7%EF%BC%88%E4%B8%80%EF%BC%89.djvu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "陶阳里"
+      }
+    ],
+    "queries": [
+      "陶阳里",
+      "Jingdezhen Taoyangli",
+      "Jingdezhen old town street",
+      "Jingdezhen ancient street"
+    ]
+  },
+  {
+    "idx": 12,
+    "name": "景德镇市七四O厂",
+    "cat": "shop",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Abandoned_%2847682162191%29.jpg/960px-Abandoned_%2847682162191%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "abandoned factory China"
+      }
+    ],
+    "queries": [
+      "abandoned factory China",
+      "industrial ruin"
+    ]
+  },
+  {
+    "idx": 13,
+    "name": "东郊学堂",
+    "cat": "shop",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Jhang-Hu_Elementary_School_old_building_20250405.jpg/960px-Jhang-Hu_Elementary_School_old_building_20250405.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "old school building China"
+      }
+    ],
+    "queries": [
+      "old school building China",
+      "abandoned school"
+    ]
+  },
+  {
+    "idx": 14,
+    "name": "丙丁柴窑",
+    "cat": "shop",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Cause_and_prevention_of_kiln_and_dry_house_scum_and_of_efflorescence_on_facebrigkwalls._%28IA_causepreventio1928370palm%29.pdf/page1-960px-Cause_and_prevention_of_kiln_and_dry_house_scum_and_of_efflorescence_on_facebrigkwalls._%28IA_causepreventio1928370palm%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "wood fired kiln China"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/China_-_a_history_of_the_laws%2C_manners_and_customs_of_the_people_%28IA_chinahistoryofla02grayuoft%29.pdf/page1-500px-China_-_a_history_of_the_laws%2C_manners_and_customs_of_the_people_%28IA_chinahistoryofla02grayuoft%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "wood fired kiln China"
+      }
+    ],
+    "queries": [
+      "Jingdezhen wood fired kiln",
+      "wood fired kiln China"
+    ]
+  },
+  {
+    "idx": 15,
+    "name": "山闾村戏台",
+    "cat": "shop",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/A_quaint_stage_and_performing_area_in_Yu_Garden_%2835634560713%29.jpg/960px-A_quaint_stage_and_performing_area_in_Yu_Garden_%2835634560713%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Chinese opera stage"
+      }
+    ],
+    "queries": [
+      "Chinese opera stage",
+      "ancient opera stage"
+    ]
+  },
+  {
+    "idx": 16,
+    "name": "小樱青花扎染店",
+    "cat": "kids",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/A_Chinese_and_English_vocabulary%2C_in_the_Tie-chiu_dialect.pdf/page1-500px-A_Chinese_and_English_vocabulary%2C_in_the_Tie-chiu_dialect.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Chinese tie dye"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Bai_fabric%2C_tie-dyed_-_Yunnan_Provincial_Museum_-_DSC02211.JPG/960px-Bai_fabric%2C_tie-dyed_-_Yunnan_Provincial_Museum_-_DSC02211.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Chinese tie dye"
+      }
+    ],
+    "queries": [
+      "Chinese tie dye",
+      "indigo tie dye"
+    ]
+  },
+  {
+    "idx": 17,
+    "name": "绿西玻璃工作室",
+    "cat": "kids",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/A_treatise_on_the_art_of_glass_painting_-_prefaced_with_a_review_of_ancient_glass_%28IA_treatiseonartofg00suff%29.pdf/page1-500px-A_treatise_on_the_art_of_glass_painting_-_prefaced_with_a_review_of_ancient_glass_%28IA_treatiseonartofg00suff%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "glass fusing art"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Glass_%28IA_glass00dill%29.pdf/page1-500px-Glass_%28IA_glass00dill%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "glass fusing art"
+      }
+    ],
+    "queries": [
+      "glass fusing art",
+      "glass art studio"
+    ]
+  },
+  {
+    "idx": 18,
+    "name": "胖师傅写真馆·妆造",
+    "cat": "kids",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/46/FJU_Graduate_1947.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "src": "",
+        "query": "Hanfu photography"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Mingbeizi2_hanfu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "src": "",
+        "query": "Hanfu photography"
+      }
+    ],
+    "queries": [
+      "Hanfu photography",
+      "Chinese traditional costume"
+    ]
+  },
+  {
+    "idx": 19,
+    "name": "前程漂流",
+    "cat": "kids",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Fall_River%2C_Massachusetts%2C_a_publication_of_personal_points_pertaining_to_a_city_of_opportunity_%28IA_fallrivermassach00river%29.pdf/page1-960px-Fall_River%2C_Massachusetts%2C_a_publication_of_personal_points_pertaining_to_a_city_of_opportunity_%28IA_fallrivermassach00river%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "river tubing China"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Mainstem_Klamath_River_Fall_Chinook_Spawning_Redd_Survey%2C_Fiscal_Year_1995_and_1996..._Fish_%26_Wildlife_Service_Coastal%2C..._U.S._Department_of_the_Interior..._October_1997_%28IA_doi-report_i-492k-66-12%29.pdf/page1-960px-thumbnail.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "river tubing China"
+      }
+    ],
+    "queries": [
+      "river tubing China",
+      "white water rafting"
+    ]
+  },
+  {
+    "idx": 20,
+    "name": "陶源谷·三宝国际陶艺村",
+    "cat": "nature",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Jingdezhen.station.bicyclette.libre_service.jpg/960px-Jingdezhen.station.bicyclette.libre_service.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Sanbao Jingdezhen"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/David_vase_detail_BM_PDF_B.614_n01.jpg/960px-David_vase_detail_BM_PDF_B.614_n01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen art village"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/MET_20606.jpg/960px-MET_20606.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jingdezhen art village"
+      }
+    ],
+    "queries": [
+      "Sanbao Jingdezhen",
+      "Jingdezhen art village"
+    ]
+  },
+  {
+    "idx": 21,
+    "name": "瑶里古镇风景区",
+    "cat": "nature",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/South_Entrance_of_Hexia_Ancient_Town_in_Huai%27an_City.jpg/960px-South_Entrance_of_Hexia_Ancient_Town_in_Huai%27an_City.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jiangxi ancient town"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/The_Ou_ma_too_five_horse_heads.jpg/960px-The_Ou_ma_too_five_horse_heads.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Jiangxi ancient town"
+      }
+    ],
+    "queries": [
+      "Yaoli ancient town",
+      "Jiangxi ancient town"
+    ]
+  },
+  {
+    "idx": 22,
+    "name": "瑶里景区东埠古街古码头",
+    "cat": "nature",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/A_short_history_of_nursing_-_Lavinia_L_Dock_%281920%29.djvu/page1-960px-A_short_history_of_nursing_-_Lavinia_L_Dock_%281920%29.djvu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "ancient dock China"
+      }
+    ],
+    "queries": [
+      "ancient dock China",
+      "old street Jiangxi"
+    ]
+  },
+  {
+    "idx": 23,
+    "name": "寒溪村",
+    "cat": "nature",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Tea_plantation_in_Elappara.jpg/960px-Tea_plantation_in_Elappara.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "tea plantation village"
+      }
+    ],
+    "queries": [
+      "tea plantation village",
+      "tea terrace China"
+    ]
+  },
+  {
+    "idx": 24,
+    "name": "饶州古镇",
+    "cat": "nature",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/SZ_Shenzhen_Longgang_JiHua_18_Ganli_Road_Gankeng_Ancient_Town_Chinese_entrance_gate_April_2025_R12S_02.jpg/960px-SZ_Shenzhen_Longgang_JiHua_18_Ganli_Road_Gankeng_Ancient_Town_Chinese_entrance_gate_April_2025_R12S_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Chinese ancient town"
+      }
+    ],
+    "queries": [
+      "Chinese ancient town",
+      "Jiangxi old town"
+    ]
+  },
+  {
+    "idx": 25,
+    "name": "鄱阳湖国家湿地公园",
+    "cat": "nature",
+    "files": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/A_Siberian_Crane_Family_at_Poyang_Lake_on_December_2023.tif/lossy-page1-960px-A_Siberian_Crane_Family_at_Poyang_Lake_on_December_2023.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Poyang Lake"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Envisat_shows_Poyang_Lake_%28Poyang_Hu%29_in_China_ESA203949.jpg/960px-Envisat_shows_Poyang_Lake_%28Poyang_Hu%29_in_China_ESA203949.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Poyang Lake"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Envisat_shows_Poyang_Lake_%28Poyang_Hu%29_in_China_ESA203949.tiff/lossy-page1-960px-Envisat_shows_Poyang_Lake_%28Poyang_Hu%29_in_China_ESA203949.tiff.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "src": "",
+        "query": "Poyang Lake"
+      }
+    ],
+    "queries": [
+      "Poyang Lake",
+      "Poyang Lake wetland"
+    ]
+  }
+]
