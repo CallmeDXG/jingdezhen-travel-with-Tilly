@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>景德镇攻略 · 配色方案预览</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:#faf7f2; color:#444; padding:18px; }
+  h1 { text-align:center; font-size:22px; margin-bottom:4px; color:#555; }
+  .tip { text-align:center; font-size:13px; color:#999; margin-bottom:22px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; max-width:1000px; margin:0 auto; }
+  .scheme { border-radius:18px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,.08); background:#fff; }
+  .scheme .label { text-align:center; font-size:15px; font-weight:700; padding:12px; color:#fff; }
+  .sample { padding:14px; }
+  /* 模拟 header 条 */
+  .mock-head { height:54px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:15px; margin-bottom:12px; }
+  /* 模拟小标题 */
+  .mock-h2 { font-size:14px; font-weight:700; border-left:5px solid; padding-left:10px; margin:10px 0; }
+  /* 模拟卡片 */
+  .mock-card { border:1px solid #eee; border-radius:12px; padding:12px; font-size:12.5px; color:#666; margin-bottom:10px; }
+  .mock-ev { display:flex; align-items:center; gap:8px; margin:6px 0; font-size:12.5px; color:#555; }
+  .mock-ev::before { content:""; width:11px;height:11px;border-radius:50%; background:#bbb; flex:0 0 auto; box-shadow:0 0 0 1px #fff; }
+  .pill { display:inline-block; font-size:11px; padding:2px 9px; border-radius:10px; margin-right:5px; }
+  .btn { display:inline-block; margin-top:6px; padding:7px 16px; border-radius:18px; color:#fff; font-size:13px; }
+  /* 地图图例点 */
+  .legend { display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; font-size:12px; color:#777; }
+  .legend span { display:inline-flex; align-items:center; gap:5px; }
+  .dot { width:14px;height:14px;border-radius:50%; display:inline-block; border:2px solid #fff; box-shadow:0 0 0 1px rgba(0,0,0,.12); }
+  /* 色板 */
+  .swatches { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .sw { width:42px; height:42px; border-radius:9px; display:flex; align-items:flex-end; justify-content:center; font-size:9px; color:#fff; padding-bottom:3px; text-shadow:0 1px 2px rgba(0,0,0,.3); }
+  .foot { text-align:center; font-size:13px; color:#888; margin-top:24px; }
+</style>
+</head>
+<body>
+<h1>🎨 景德镇攻略 · 配色方案预览</h1>
+<div class="tip">三套都偏甜可爱、适合 10 岁小姑娘，挑一套告诉我（A / B / C），我换到正式攻略里</div>
+
+<div class="grid">
+
+  <!-- ===== 方案 A：樱花少女 ===== -->
+  <div class="scheme">
+    <div class="label" style="background:linear-gradient(135deg,#ff9ec4,#ffc2dd);">A · 樱花少女 🌸</div>
+    <div class="sample">
+      <div class="mock-head" style="background:linear-gradient(135deg,#ff9ec4,#ffc2dd);">🏺 景德镇亲子游攻略</div>
+      <div class="mock-h2" style="border-color:#ff6f9c;color:#e85a8a;">🗺️ 可缩放地图</div>
+      <div class="mock-card">
+        <div class="mock-ev" style="color:#e85a8a;">🏨 麗枫酒店（陶瓷博物馆店）</div>
+        <div class="mock-ev">🏛️ 御窑博物馆 <span class="pill" style="background:#efeaff;color:#7a5cff;">亲子</span></div>
+        <span class="btn" style="background:#ff6f9c;">查看行程</span>
+      </div>
+      <div class="legend">
+        <span><i class="dot" style="background:#9b8cff;"></i>博物馆</span>
+        <span><i class="dot" style="background:#ff6f9c;"></i>门店</span>
+        <span><i class="dot" style="background:#74d3c0;"></i>手工</span>
+        <span><i class="dot" style="background:#ffc861;"></i>美食</span>
+        <span><i class="dot" style="background:#c77dff;"></i>酒店</span>
+      </div>
+      <div class="swatches">
+        <div class="sw" style="background:#ff9ec4;">#ff9ec4</div>
+        <div class="sw" style="background:#ff6f9c;">#ff6f9c</div>
+        <div class="sw" style="background:#74d3c0;">#74d3c0</div>
+        <div class="sw" style="background:#9b8cff;">#9b8cff</div>
+        <div class="sw" style="background:#ffc861;">#ffc861</div>
+        <div class="sw" style="background:#c77dff;">#c77dff</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 方案 B：梦幻紫芋 ===== -->
+  <div class="scheme">
+    <div class="label" style="background:linear-gradient(135deg,#b794f6,#d9c2ff);">B · 梦幻紫芋 💜</div>
+    <div class="sample">
+      <div class="mock-head" style="background:linear-gradient(135deg,#b794f6,#d9c2ff);">🏺 景德镇亲子游攻略</div>
+      <div class="mock-h2" style="border-color:#ff8fc4;color:#d666b0;">🗺️ 可缩放地图</div>
+      <div class="mock-card">
+        <div class="mock-ev" style="color:#d666b0;">🏨 麗枫酒店（陶瓷博物馆店）</div>
+        <div class="mock-ev">🏛️ 御窑博物馆 <span class="pill" style="background:#efeaff;color:#7a5cff;">亲子</span></div>
+        <span class="btn" style="background:#ff8fc4;">查看行程</span>
+      </div>
+      <div class="legend">
+        <span><i class="dot" style="background:#7aa7ff;"></i>博物馆</span>
+        <span><i class="dot" style="background:#ff8fc4;"></i>门店</span>
+        <span><i class="dot" style="background:#7ed0d8;"></i>手工</span>
+        <span><i class="dot" style="background:#ffd166;"></i>美食</span>
+        <span><i class="dot" style="background:#c77dff;"></i>酒店</span>
+      </div>
+      <div class="swatches">
+        <div class="sw" style="background:#b794f6;">#b794f6</div>
+        <div class="sw" style="background:#ff8fc4;">#ff8fc4</div>
+        <div class="sw" style="background:#7ed0d8;">#7ed0d8</div>
+        <div class="sw" style="background:#7aa7ff;">#7aa7ff</div>
+        <div class="sw" style="background:#ffd166;">#ffd166</div>
+        <div class="sw" style="background:#c77dff;">#c77dff</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 方案 C：蜜桃薄荷 ===== -->
+  <div class="scheme">
+    <div class="label" style="background:linear-gradient(135deg,#ffb088,#ffd6a5);">C · 蜜桃薄荷 🍑</div>
+    <div class="sample">
+      <div class="mock-head" style="background:linear-gradient(135deg,#ffb088,#ffd6a5);color:#7a4a2a;">🏺 景德镇亲子游攻略</div>
+      <div class="mock-h2" style="border-color:#ff8c69;color:#e06a44;">🗺️ 可缩放地图</div>
+      <div class="mock-card">
+        <div class="mock-ev" style="color:#e06a44;">🏨 麗枫酒店（陶瓷博物馆店）</div>
+        <div class="mock-ev">🏛️ 御窑博物馆 <span class="pill" style="background:#e8f7f3;color:#2f9b85;">亲子</span></div>
+        <span class="btn" style="background:#ff8c69;">查看行程</span>
+      </div>
+      <div class="legend">
+        <span><i class="dot" style="background:#6fb1e0;"></i>博物馆</span>
+        <span><i class="dot" style="background:#ff8c69;"></i>门店</span>
+        <span><i class="dot" style="background:#6fd6c4;"></i>手工</span>
+        <span><i class="dot" style="background:#ffc861;"></i>美食</span>
+        <span><i class="dot" style="background:#e08ad0;"></i>酒店</span>
+      </div>
+      <div class="swatches">
+        <div class="sw" style="background:#ffb088;">#ffb088</div>
+        <div class="sw" style="background:#ff8c69;">#ff8c69</div>
+        <div class="sw" style="background:#6fd6c4;">#6fd6c4</div>
+        <div class="sw" style="background:#6fb1e0;">#6fb1e0</div>
+        <div class="sw" style="background:#ffc861;">#ffc861</div>
+        <div class="sw" style="background:#e08ad0;">#e08ad0</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="foot">挑好告诉我是 A / B / C，我就把正式攻略换成这套配色 🌟</div>
+</body>
+</html>
