@@ -435,13 +435,14 @@
 
 </div>
 
-<footer>景德镇亲子游攻略 · 由图片资料整理生成 · 地图数据 © OpenStreetMap</footer>
+<footer>景德镇亲子游攻略 · 由图片资料整理生成 · 地图数据 © 高德地图</footer>
 
 <script>
 // ===== 地图初始化 =====
 const map = L.map('map', { scrollWheelZoom: true }).setView([29.26, 117.20], 11);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19, attribution: '© OpenStreetMap'
+// 高德地图瓦片：国内/微信内置浏览器均可正常加载（OpenStreetMap 在大陆常被墙）
+L.tileLayer('https://webrd01.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
+  maxZoom: 18, attribution: '© 高德地图'
 }).addTo(map);
 
 // ===== 全部地点数据（40+个点）=====
