@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>闺女去景德镇要带的东西 · 行李清单</title>
+<style>
+  :root{
+    --peach:#ffb088; --peach-d:#ff9a76; --cream:#fff7f0; --paper:#fffdfb;
+    --ink:#5b4636; --muted:#a08a78; --mint:#7fc8b0; --pink:#e08ad0;
+    --coral:#ff9e80; --line:#ffe2d4; --yellow:#ffd98a;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:linear-gradient(160deg,#fff7f0,#ffeede);color:var(--ink);padding:18px;}
+  .wrap{max-width:640px;margin:0 auto;background:var(--paper);border-radius:22px;
+    box-shadow:0 10px 30px rgba(255,154,118,.18);overflow:hidden;}
+  header{background:linear-gradient(135deg,var(--peach),var(--peach-d));color:#fff;
+    padding:22px 22px 18px;}
+  header h1{margin:0;font-size:21px;letter-spacing:.5px;}
+  header p{margin:6px 0 0;font-size:13px;opacity:.92;}
+  .sec{padding:14px 20px;border-bottom:1px dashed var(--line);}
+  .sec:last-child{border-bottom:none;}
+  .sec h2{margin:0 0 10px;font-size:16px;display:flex;align-items:center;gap:8px;}
+  .sec h2 .em{font-size:18px;}
+  label{display:flex;align-items:flex-start;gap:10px;padding:7px 8px;border-radius:12px;
+    cursor:pointer;font-size:14.5px;line-height:1.5;transition:background .15s;}
+  label:hover{background:#fff3ea;}
+  label input{margin-top:3px;width:18px;height:18px;accent-color:var(--coral);flex:none;}
+  label.done span{text-decoration:line-through;color:var(--muted);}
+  .tip{font-size:12.5px;color:var(--muted);background:#fff6ef;border-left:3px solid var(--peach);
+    padding:8px 12px;border-radius:0 10px 10px 0;margin-top:8px;line-height:1.6;}
+  footer{padding:14px 20px 22px;text-align:center;color:var(--muted);font-size:12px;}
+  .bar{position:sticky;top:0;background:var(--cream);padding:10px 20px;font-size:13px;
+    border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+  .bar b{color:var(--coral);}
+  .reset{background:#fff;border:1px solid var(--line);border-radius:20px;padding:5px 14px;
+    font-size:12px;color:var(--muted);cursor:pointer;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🎒 闺女去景德镇 · 行李清单</h1>
+    <p>8/15–8/23 · 约 8 天 · 8 月景德镇很热（35℃左右）· 主打手工+玩水+看鸟</p>
+  </header>
+  <div class="bar"><span>已勾：<b id="cnt">0</b> / <span id="tot">0</span></span><span class="reset" onclick="resetAll()">清空重选</span></div>
+
+  <div class="sec">
+    <h2><span class="em">🪪</span>证件 & 钱</h2>
+    <label><input type="checkbox"><span>身份证 或 户口本（儿童出行备查）</span></label>
+    <label><input type="checkbox"><span>学生证（若有，部分馆门票半价）</span></label>
+    <label><input type="checkbox"><span>一点零花钱（小额现金 + 爸爸手机付）</span></label>
+  </div>
+
+  <div class="sec">
+    <h2><span class="em">👕</span>衣物</h2>
+    <label><input type="checkbox"><span>透气短袖 / 短裤 5–6 套（天天换）</span></label>
+    <label><input type="checkbox"><span>内衣裤 + 袜子 足量</span></label>
+    <label><input type="checkbox"><span>一件薄外套（租车空调 / 博物馆室内冷）</span></label>
+    <label><input type="checkbox"><span>睡衣 1–2 套</span></label>
+    <label><input type="checkbox"><span>舒服的走路鞋 + 一双凉鞋</span></label>
+    <label><input type="checkbox"><span>防晒衣 / 遮阳帽</span></label>
+    <label><input type="checkbox"><span>泳衣 + 漂流/玩水后的替换衣服</span></label>
+    <div class="tip">⚠️ 扎染、玻璃、陶艺都会弄脏衣服，多带 1–2 套旧衣服更省心。</div>
+  </div>
+
+  <div class="sec">
+    <h2><span class="em">☀️</span>防晒 · 防暑 · 防蚊</h2>
+    <label><input type="checkbox"><span>儿童防晒霜 SPF50+</span></label>
+    <label><input type="checkbox"><span>小风扇 / 折扇</span></label>
+    <label><input type="checkbox"><span>驱蚊液（儿童款）+ 无比滴 / 清凉油止痒</span></label>
+    <label><input type="checkbox"><span>补水喷雾 / 小水杯</span></label>
+  </div>
+
+  <div class="sec">
+    <h2><span class="em">🎨</span>手工 & 拍照（她最爱！）</h2>
+    <label><input type="checkbox"><span>小围裙 / 袖套（扎染防染色）</span></label>
+    <label><input type="checkbox"><span>随身小本子 + 彩笔（记录/画自己做的东西）</span></label>
+    <label><input type="checkbox"><span>湿巾 + 纸巾（随时擦手）</span></label>
+    <label><input type="checkbox"><span>自己喜欢的发饰 / 小饰品（汉服写真用）</span></label>
+    <div class="tip">扎染店、玻璃工作室、陶艺、写真妆造现场都会提供材料，主要带"护衣+记录"的就够。</div>
+  </div>
+
+  <div class="sec">
+    <h2><span class="em">🌊</span>玩水 & 看鸟</h2>
+    <label><input type="checkbox"><span>手机防水袋（漂流/湿地必备）</span></label>
+    <label><input type="checkbox"><span>拖鞋（漂流 & 鄱阳湖边）</span></label>
+    <label><input type="checkbox"><span>毛巾 + 装湿衣服的塑料袋</span></label>
+    <label><input type="checkbox"><span>轻便 binoculars 望远镜（看候鸟，没有可现场租）</span></label>
+  </div>
+
+  <div class="sec">
+    <h2><span class="em">💊</span>健康 & 途中</h2>
+    <label><input type="checkbox"><span>常用药：退烧 / 肠胃 / 过敏（按她平时备）</span></label>
+    <label><input type="checkbox"><span>创可贴 + 口罩</span></label>
+    <label><input type="checkbox"><span>润唇膏</span></label>
+    <label><input type="checkbox"><span>充电宝 + 数据线</span></label>
+    <label><input type="checkbox"><span>车上解闷：平板 / 书 / 画具 / 耳机</span></label>
+    <label><input type="checkbox"><span>爱吃的小零食</span></label>
+  </div>
+
+  <footer>和爸爸一起勾完，出发前对照打勾就好啦 💕</footer>
+</div>
+<script>
+  const boxes=document.querySelectorAll('input[type=checkbox]');
+  const cnt=document.getElementById('cnt'), tot=document.getElementById('tot');
+  tot.textContent=boxes.length;
+  function upd(){let n=0;boxes.forEach(b=>{if(b.checked)b.closest('label').classList.add('done');else b.closest('label').classList.remove('done');if(b.checked)n++;});cnt.textContent=n;}
+  boxes.forEach(b=>b.addEventListener('change',upd));
+  function resetAll(){boxes.forEach(b=>b.checked=false);upd();}
+  upd();
+</script>
+</body>
+</html>
