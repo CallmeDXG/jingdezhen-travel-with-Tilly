@@ -9,17 +9,17 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
-    --ink: #2c2722;
-    --paper: #f7f3ec;
-    --card: #fffdf8;
-    --celadon: #7ba8a0;
-    --celadon-d:#5b8a82;
-    --clay: #c97b5a;
-    --clay-d:#a85f43;
-    --gold: #d4a24c;
-    --blue: #4a6fa5;
-    --line: #e4dccd;
-    --muted: #8a7f70;
+    --ink: #4a3526;
+    --paper: #fdf6ee;
+    --card: #fffdfa;
+    --celadon: #6fd6c4;
+    --celadon-d:#2f9b85;
+    --clay: #ff8c69;
+    --clay-d:#e06a44;
+    --gold: #ffc861;
+    --blue: #6fb1e0;
+    --line: #f0e6da;
+    --muted: #9b8775;
   }
   body {
     font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -29,8 +29,8 @@
     -webkit-font-smoothing: antialiased;
   }
   header {
-    background: linear-gradient(135deg, var(--celadon-d) 0%, var(--blue) 100%);
-    color: #fff;
+    background: linear-gradient(135deg, #ffb088 0%, #ffd6a5 100%);
+    color: #7a4a2a;
     padding: 38px 22px 30px;
     text-align: center;
     position: relative;
@@ -73,10 +73,10 @@
   .dot.museum { background: var(--blue); }
   .dot.shop { background: var(--clay); }
   .dot.food { background: var(--gold); }
-  .dot.kids { background: #e07a9b; }
-  .dot.nature { background: #6fae5a; }
-  .dot.base { background: #9a8f7e; }
-  .dot.hotel { background: #9b59b6; }
+  .dot.kids { background: #6fd6c4; }
+  .dot.nature { background: #ffb088; }
+  .dot.base { background: #ffb088; }
+  .dot.hotel { background: #e08ad0; }
   /* Tabs filter */
   .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
   .filter-bar button {
@@ -90,7 +90,7 @@
     margin-bottom: 14px; overflow: hidden;
   }
   .day-head {
-    background: linear-gradient(90deg, #fbf6ec, #f1ece0);
+    background: linear-gradient(90deg, #fdf6ee, #f7ecdf);
     padding: 13px 18px; display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line);
   }
   .day-head .d { font-size: 17px; font-weight: 700; color: var(--clay-d); }
@@ -107,20 +107,20 @@
   .ev .note { font-size: 13px; color: var(--muted); }
   .ev.empty .act { color: var(--muted); font-weight: 400; font-style: italic; }
   .ev.empty::before { background: var(--muted); box-shadow: 0 0 0 1px var(--muted); }
-  .ev.hotel-tag .act { color: #9b59b6; }
-  .ev.hotel-tag::before { background: #9b59b6; box-shadow: 0 0 0 1px #9b59b6; }
+  .ev.hotel-tag .act { color: #e08ad0; }
+  .ev.hotel-tag::before { background: #e08ad0; box-shadow: 0 0 0 1px #e08ad0; }
   .tag { display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 10px; margin-right: 6px; vertical-align: middle; }
-  .tag.kids { background: #fde3ec; color: #c25c82; }
-  .tag.free { background: #e3f1ec; color: #3f8a78; }
-  .tag.craft { background: #fbeede; color: #b97221; }
+  .tag.kids { background: #e8f7f3; color: #2f9b85; }
+  .tag.free { background: #fff6e0; color: #c79a2e; }
+  .tag.craft { background: #fdeee6; color: #e06a44; }
   /* Stay cards */
   .stay-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 14px; }
   .stay {
     border: 1px solid var(--line); border-radius: 12px; padding: 16px; background: #fff;
   }
-  .stay.confirmed { border-color: #9b59b6; box-shadow: 0 0 0 2px rgba(155,89,182,.25); }
+  .stay.confirmed { border-color: #e08ad0; box-shadow: 0 0 0 2px rgba(224,138,208,.25); }
   .stay h3 { font-size: 15px; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
-  .stay .badge { font-size: 11px; background: #9b59b6; color:#fff; padding: 2px 8px; border-radius: 10px; }
+  .stay .badge { font-size: 11px; background: #e08ad0; color:#fff; padding: 2px 8px; border-radius: 10px; }
   .stay p { font-size: 13px; color: var(--muted); }
   .stay ul { font-size: 13px; margin: 8px 0 0 18px; color: var(--ink); }
   .stay li { margin-bottom: 3px; }
@@ -136,7 +136,7 @@
   /* Tips */
   .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 12px; }
   .tip { background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 8px; padding: 12px 14px; font-size: 13px; }
-  .tip.warn { border-left-color: #d96b5a; }
+  .tip.warn { border-left-color: #e06a44; }
   .tip.cool { border-left-color: var(--celadon); }
   .tip b { color: var(--ink); }
   /* Checklist */
@@ -176,7 +176,7 @@
     <p style="font-size:14.5px;margin-bottom:10px;">
       整体节奏<strong>宽松不赶场</strong>，每天核心活动1-2个，午后留休息/自由探索时间。亲子重点放在
       <strong style="color:var(--clay-d)">手工体验</strong>（扎染、玻璃、陶艺）和<strong style="color:var(--blue)">博物馆</strong>。
-      酒店已定：<b style="color:#9b59b6">前3晚麗枫酒店（陶瓷博物馆旁）</b> + <b style="color:#9b59b6">后3晚景瀚大酒店（陶溪川街区）</b>，地图上已标注紫色点。
+      酒店已定：<b style="color:#e08ad0">前3晚麗枫酒店（陶瓷博物馆旁）</b> + <b style="color:#e08ad0">后3晚景瀚大酒店（陶溪川街区）</b>，地图上已标注紫色点。
     </p>
     <div class="note-inline">
       📌 <b>待补充</b>：① 每日哪个半天空着，等你刷到好玩的再填 ② 鄱阳湖观鸟若成行，会替换 D6/D7 中的一天。
@@ -495,7 +495,7 @@ const places = [
   { cat:'nature', name:'鄱阳湖国家湿地公园', lat:29.1200, lng:116.4800, desc:'自驾约1.5h\n湿地生态 · 夏候鸟\nD6备选方案' },
 ];
 
-const colorMap = { museum:'#4a6fa5', shop:'#c97b5a', kids:'#e07a9b', food:'#d4a24c', nature:'#6fae5a', base:'#9a8f7e', hotel:'#9b59b6' };
+const colorMap = { museum:'#6fb1e0', shop:'#ff8c69', kids:'#6fd6c4', food:'#ffc861', nature:'#ffb088', base:'#ffb088', hotel:'#e08ad0' };
 const markers = {};
 
 places.forEach(p => {
